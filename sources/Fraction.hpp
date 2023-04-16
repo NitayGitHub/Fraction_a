@@ -9,7 +9,9 @@ class Fraction
 private:
     int deno; // denominator
     int nume; // numerator
-    void gcd(int a, int b);
+    int GetGcd(const int a, const int b) const;
+    int GetLcm(const int a, const int b, int calculatedGcd) const;
+    Fraction GetFractionFromFloat(const float &f) const;
 public:
     // constructors
     Fraction(int numerator, int denominator);
@@ -17,8 +19,13 @@ public:
     
     // functions
     void SimplfyFraction();
+    int getNumerator() const;
+    void setNumerator(int numerator);
+    int getDenominator() const;
+    void setDenominator(int denominator);
 
     // operators
+    Fraction& operator=(const float &f);
     Fraction operator+(const Fraction &other) const;
     friend Fraction operator+(const float &f, const Fraction &frac);
     Fraction operator-(const Fraction &other) const;
