@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "atomic": "cpp",
+        "chrono": "cpp",
+        "iterator": "cpp",
+        "system_error": "cpp",
+        "typeinfo": "cpp",
+        "iosfwd": "cpp",
+        "array": "cpp",
+        "compare": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "memory": "cpp",
+        "string_view": "cpp",
+        "thread": "cpp",
+        "tuple": "cpp"
+    }
+}
