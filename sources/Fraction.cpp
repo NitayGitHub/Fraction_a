@@ -165,7 +165,11 @@ Fraction operator/(const Fraction &frac, const float &f)
 
 bool Fraction::operator==(const Fraction &other) const
 {
-    return this->nume == other.nume && this->deno == other.deno;
+    Fraction this_frac(this->nume, this->deno);
+    Fraction other_frac(other.nume, other.deno);
+    this_frac.SimplfyFraction();
+    other_frac.SimplfyFraction();
+    return this_frac.nume == other_frac.nume && this_frac.deno == other_frac.deno;
 }
 
 bool operator==(const float &f, const Fraction &frac){
