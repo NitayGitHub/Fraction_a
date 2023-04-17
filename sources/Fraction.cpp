@@ -95,3 +95,88 @@ Fraction operator+(const float &f, const Fraction &frac)
     Fraction floatFrac = f;
     return frac + floatFrac;
 }
+
+Fraction operator+(const Fraction &frac, const float &f)
+{
+    Fraction floatFrac = f;
+    return frac + floatFrac;
+}
+
+Fraction Fraction::operator-(const Fraction &other) const
+{
+    int new_deno = GetLcm(other.deno, this->deno);
+    int new_nume = this->nume * (new_deno / this->deno) - other.nume * (new_deno / other.deno);
+    Fraction new_frac(new_nume, new_deno);
+    new_frac.SimplfyFraction();
+    return new_frac;
+}
+
+Fraction operator-(const float &f, const Fraction &frac)
+{
+    Fraction floatFrac = f;
+    return floatFrac - frac;
+}
+
+Fraction operator-(const Fraction &frac, const float &f)
+{
+    Fraction floatFrac = f;
+    return frac - floatFrac;
+}
+
+Fraction Fraction::operator*(const Fraction &other) const
+{
+    int new_nume = this->nume * other.nume;
+    int new_deno = this->deno * other.deno;
+    Fraction new_frac(new_nume, new_deno);
+    new_frac.SimplfyFraction();
+    return new_frac;
+}
+
+Fraction operator*(const float &f, const Fraction &frac)
+{
+    Fraction floatFrac = f;
+    return frac * floatFrac;
+}
+
+Fraction operator*(const Fraction &frac, const float &f)
+{
+    Fraction floatFrac = f;
+    return frac * floatFrac;
+}
+
+Fraction Fraction::operator/(const Fraction &other) const
+{
+    int new_nume = this->nume * other.deno;
+    int new_deno = this->deno * other.nume;
+    Fraction new_frac(new_nume, new_deno);
+    new_frac.SimplfyFraction();
+    return new_frac;
+}
+
+Fraction operator/(const float &f, const Fraction &frac)
+{
+    Fraction floatFrac = f;
+    return floatFrac / frac;
+}
+
+Fraction operator/(const Fraction &frac, const float &f)
+{
+    Fraction floatFrac = f;
+    return frac / floatFrac;
+}
+
+bool Fraction::operator==(const Fraction &other) const
+{
+    return this->nume == other.nume && this->deno == other.deno;
+}
+
+bool operator==(const float &f, const Fraction &frac){
+    Fraction floatFrac = f;
+    return floatFrac == frac;
+}
+
+bool operator==(const Fraction &frac, const float &f){
+    Fraction floatFrac = f;
+    return floatFrac == frac;
+}
+
