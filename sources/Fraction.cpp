@@ -2,10 +2,9 @@
 #include <stdexcept>
 #include <cmath>
 using namespace std;
-using namespace ariel;
+namespace ariel{
 
 // Constructors
-
 Fraction::Fraction(int numerator, int denominator) : nume(numerator), deno(denominator)
 {
     if (denominator == 0)
@@ -66,7 +65,7 @@ void Fraction::setDenominator(int denominator)
     deno = denominator;
 }
 
-// Operators
+// Math Operators
 
 Fraction& Fraction::operator=(const float &f)
 {
@@ -165,6 +164,8 @@ Fraction operator/(const Fraction &frac, const float &f)
     return frac / floatFrac;
 }
 
+// Boolean Operators
+
 bool Fraction::operator==(const Fraction &other) const
 {
     return this->nume == other.nume && this->deno == other.deno;
@@ -180,3 +181,102 @@ bool operator==(const Fraction &frac, const float &f){
     return floatFrac == frac;
 }
 
+bool Fraction::operator>(const Fraction &other) const
+{
+    int lcm = GetLcm(other.deno, this->deno);
+    return this->nume * (lcm / this->deno) > other.nume * (lcm / other.deno);
+}
+
+bool operator>(const float &f, const Fraction &frac){
+    Fraction floatFrac = f;
+    return floatFrac > frac;
+}
+
+bool operator>(const Fraction &frac, const float &f){
+    Fraction floatFrac = f;
+    return frac > floatFrac;
+}
+
+bool Fraction::operator<(const Fraction &other) const
+{
+    int lcm = GetLcm(other.deno, this->deno);
+    return this->nume * (lcm / this->deno) < other.nume * (lcm / other.deno);
+}
+
+bool operator<(const float &f, const Fraction &frac){
+    Fraction floatFrac = f;
+    return floatFrac < frac;
+}
+
+bool operator<(const Fraction &frac, const float &f){
+    Fraction floatFrac = f;
+    return frac < floatFrac;
+}
+
+bool Fraction::operator>=(const Fraction &other) const
+{
+    int lcm = GetLcm(other.deno, this->deno);
+    return this->nume * (lcm / this->deno) >= other.nume * (lcm / other.deno);
+}
+
+bool operator>=(const float &f, const Fraction &frac){
+    Fraction floatFrac = f;
+    return floatFrac >= frac;
+}
+
+bool operator>=(const Fraction &frac, const float &f){
+    Fraction floatFrac = f;
+    return frac >= floatFrac;
+}
+
+bool Fraction::operator<=(const Fraction &other) const
+{
+    int lcm = GetLcm(other.deno, this->deno);
+    return this->nume * (lcm / this->deno) <= other.nume * (lcm / other.deno);
+}
+
+bool operator<=(const float &f, const Fraction &frac){
+    Fraction floatFrac = f;
+    return floatFrac <= frac;
+}
+
+bool operator<=(const Fraction &frac, const float &f){
+    Fraction floatFrac = f;
+    return frac <= floatFrac;
+}
+
+Fraction& Fraction::operator++(int increment_flag){
+    this->nume += this->deno;
+    return *this;
+}
+
+Fraction& Fraction::operator--(int decrement_flag){
+    this->nume-= this->deno;
+    return *this;
+}
+
+Fraction& Fraction::operator++(){
+    this->nume += this->deno;
+    return *this;
+}
+
+Fraction& Fraction::operator--(){
+    this->nume-= this->deno;
+    return *this;
+}
+
+// Stream Operators
+
+ostream& operator<<(ostream& os, const Fraction& frac){
+    os << frac.getNumerator() << "/" << frac.getDenominator();
+    return os;
+}
+
+istream& operator>>(istream& is, Fraction& frac){
+    int nume, deno;
+    is >> nume >> deno;
+    frac.setNumerator(nume);
+    frac.setDenominator(deno);
+    return is;
+}
+};

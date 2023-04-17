@@ -44,12 +44,16 @@ public:
     friend bool operator==(const Fraction &frac, const float &f);
     bool operator>(const Fraction &other) const;
     friend bool operator>(const float &f, const Fraction &frac);
+    friend bool operator>(const Fraction &frac, const float &f);
     bool operator<(const Fraction &other) const;
     friend bool operator<(const float &f, const Fraction &frac);
+    friend bool operator<(const Fraction &frac, const float &f);
     bool operator>=(const Fraction &other) const;
     friend bool operator>=(const float &f, const Fraction &frac);
+    friend bool operator>=(const Fraction &frac, const float &f);
     bool operator<=(const Fraction &other) const;
     friend bool operator<=(const float &f, const Fraction &frac);
+    friend bool operator<=(const Fraction &frac, const float &f);
     // unary operators
     Fraction& operator++(int increment_flag);
     Fraction& operator++();
@@ -61,10 +65,7 @@ public:
 
     
 };
-
-
 }
-
 
 
 #endif
