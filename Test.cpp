@@ -18,8 +18,8 @@ TEST_CASE("Check boolean operators"){
     CHECK(f1 == f2);
     CHECK(f3 > f1);
     CHECK(f3 >= f1);
-    CHECK(!(f1 < f3));
-    CHECK(!(f1 <= f3));
+    CHECK(f1 < f3);
+    CHECK(f1 <= f3);
 }
 
 TEST_CASE("Check math operators"){
@@ -47,8 +47,8 @@ TEST_CASE("Check unary operators"){
     Fraction f1(1,2);
 
     CHECK(++f1 == 1.5);
+    CHECK(--f1 == 0.5);
     CHECK(f1++ == 1.5);
-    CHECK(--f1 == -0.5);
-    CHECK(f1-- == -0.5);
+    CHECK(f1-- == 0.5);
 }
 

@@ -173,11 +173,17 @@ bool Fraction::operator==(const Fraction &other) const
 }
 
 bool operator==(const float &f, const Fraction &frac){
+    if(frac.getNumerator() == 0 && f == 0){
+        return true;
+    }
     Fraction floatFrac = floatToFraction(f);
     return floatFrac == frac;
 }
 
 bool operator==(const Fraction &frac, const float &f){
+    if(frac.getNumerator() == 0 && f == 0){
+        return true;
+    }
     Fraction floatFrac = floatToFraction(f);
     return floatFrac == frac;
 }
