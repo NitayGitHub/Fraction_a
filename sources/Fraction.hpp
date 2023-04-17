@@ -25,7 +25,6 @@ public:
     void setDenominator(int denominator);
 
     // math operators
-    Fraction& operator=(const float &f);
     Fraction operator+(const Fraction &other) const;
     friend Fraction operator+(const float &f, const Fraction &frac);
     friend Fraction operator+(const Fraction &frac, const float &f);
