@@ -4,14 +4,14 @@
 using namespace std;
 namespace ariel{
 
-Fraction floatToFraction(const float &f)
+Fraction floatToFraction(const float &num)
 {
     int denominator = 1;
-    while (f * denominator != floor(f * denominator))
+    while (num * denominator != floor(num * denominator))
     {
         denominator = denominator * 10;
     }
-    return Fraction(static_cast<int>(f * denominator), denominator);
+    return Fraction(static_cast<int>(num * denominator), denominator);
 }
 
 // Constructors
@@ -86,15 +86,15 @@ Fraction Fraction::operator+(const Fraction &other) const
     return new_frac;
 }
 
-Fraction operator+(const float &f, const Fraction &frac)
+Fraction operator+(const float &num, const Fraction &frac)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return frac + floatFrac;
 }
 
-Fraction operator+(const Fraction &frac, const float &f)
+Fraction operator+(const Fraction &frac, const float &num)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return frac + floatFrac;
 }
 
@@ -107,15 +107,15 @@ Fraction Fraction::operator-(const Fraction &other) const
     return new_frac;
 }
 
-Fraction operator-(const float &f, const Fraction &frac)
+Fraction operator-(const float &num, const Fraction &frac)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac - frac;
 }
 
-Fraction operator-(const Fraction &frac, const float &f)
+Fraction operator-(const Fraction &frac, const float &num)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return frac - floatFrac;
 }
 
@@ -128,15 +128,15 @@ Fraction Fraction::operator*(const Fraction &other) const
     return new_frac;
 }
 
-Fraction operator*(const float &f, const Fraction &frac)
+Fraction operator*(const float &num, const Fraction &frac)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return frac * floatFrac;
 }
 
-Fraction operator*(const Fraction &frac, const float &f)
+Fraction operator*(const Fraction &frac, const float &num)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return frac * floatFrac;
 }
 
@@ -149,15 +149,15 @@ Fraction Fraction::operator/(const Fraction &other) const
     return new_frac;
 }
 
-Fraction operator/(const float &f, const Fraction &frac)
+Fraction operator/(const float &num, const Fraction &frac)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac / frac;
 }
 
-Fraction operator/(const Fraction &frac, const float &f)
+Fraction operator/(const Fraction &frac, const float &num)
 {
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return frac / floatFrac;
 }
 
@@ -172,19 +172,19 @@ bool Fraction::operator==(const Fraction &other) const
     return this_frac.nume == other_frac.nume && this_frac.deno == other_frac.deno;
 }
 
-bool operator==(const float &f, const Fraction &frac){
-    if(frac.getNumerator() == 0 && f == 0){
+bool operator==(const float &num, const Fraction &frac){
+    if(frac.getNumerator() == 0 && num == 0){
         return true;
     }
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac == frac;
 }
 
-bool operator==(const Fraction &frac, const float &f){
-    if(frac.getNumerator() == 0 && f == 0){
+bool operator==(const Fraction &frac, const float &num){
+    if(frac.getNumerator() == 0 && num == 0){
         return true;
     }
-    Fraction floatFrac = floatToFraction(f);
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac == frac;
 }
 
@@ -194,13 +194,13 @@ bool Fraction::operator>(const Fraction &other) const
     return this->nume * (lcm / this->deno) > other.nume * (lcm / other.deno);
 }
 
-bool operator>(const float &f, const Fraction &frac){
-    Fraction floatFrac = floatToFraction(f);
+bool operator>(const float &num, const Fraction &frac){
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac > frac;
 }
 
-bool operator>(const Fraction &frac, const float &f){
-    Fraction floatFrac = floatToFraction(f);
+bool operator>(const Fraction &frac, const float &num){
+    Fraction floatFrac = floatToFraction(num);
     return frac > floatFrac;
 }
 
@@ -210,13 +210,13 @@ bool Fraction::operator<(const Fraction &other) const
     return this->nume * (lcm / this->deno) < other.nume * (lcm / other.deno);
 }
 
-bool operator<(const float &f, const Fraction &frac){
-    Fraction floatFrac = floatToFraction(f);
+bool operator<(const float &num, const Fraction &frac){
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac < frac;
 }
 
-bool operator<(const Fraction &frac, const float &f){
-    Fraction floatFrac = floatToFraction(f);
+bool operator<(const Fraction &frac, const float &num){
+    Fraction floatFrac = floatToFraction(num);
     return frac < floatFrac;
 }
 
@@ -226,13 +226,13 @@ bool Fraction::operator>=(const Fraction &other) const
     return this->nume * (lcm / this->deno) >= other.nume * (lcm / other.deno);
 }
 
-bool operator>=(const float &f, const Fraction &frac){
-    Fraction floatFrac = floatToFraction(f);
+bool operator>=(const float &num, const Fraction &frac){
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac >= frac;
 }
 
-bool operator>=(const Fraction &frac, const float &f){
-    Fraction floatFrac = floatToFraction(f);
+bool operator>=(const Fraction &frac, const float &num){
+    Fraction floatFrac = floatToFraction(num);
     return frac >= floatFrac;
 }
 
@@ -242,13 +242,13 @@ bool Fraction::operator<=(const Fraction &other) const
     return this->nume * (lcm / this->deno) <= other.nume * (lcm / other.deno);
 }
 
-bool operator<=(const float &f, const Fraction &frac){
-    Fraction floatFrac = floatToFraction(f);
+bool operator<=(const float &num, const Fraction &frac){
+    Fraction floatFrac = floatToFraction(num);
     return floatFrac <= frac;
 }
 
-bool operator<=(const Fraction &frac, const float &f){
-    Fraction floatFrac = floatToFraction(f);
+bool operator<=(const Fraction &frac, const float &num){
+    Fraction floatFrac = floatToFraction(num);
     return frac <= floatFrac;
 }
 

@@ -11,7 +11,7 @@ private:
     int nume; // numerator
     int GetGcd(const int a, const int b) const;
     int GetLcm(const int a, const int b, int calculatedGcd) const;
-    Fraction GetFractionFromFloat(const float &f) const;
+    Fraction GetFractionFromFloat(const float &num) const;
 public:
     // constructors
     Fraction(int numerator, int denominator);
@@ -26,33 +26,33 @@ public:
 
     // math operators
     Fraction operator+(const Fraction &other) const;
-    friend Fraction operator+(const float &f, const Fraction &frac);
-    friend Fraction operator+(const Fraction &frac, const float &f);
+    friend Fraction operator+(const float &num, const Fraction &frac);
+    friend Fraction operator+(const Fraction &frac, const float &num);
     Fraction operator-(const Fraction &other) const;
-    friend Fraction operator-(const float &f, const Fraction &frac);
-    friend Fraction operator-(const Fraction &frac, const float &f);
+    friend Fraction operator-(const float &num, const Fraction &frac);
+    friend Fraction operator-(const Fraction &frac, const float &num);
     Fraction operator*(const Fraction &other) const;
-    friend Fraction operator*(const float &f, const Fraction &frac);
-    friend Fraction operator*(const Fraction &frac, const float &f);
+    friend Fraction operator*(const float &num, const Fraction &frac);
+    friend Fraction operator*(const Fraction &frac, const float &num);
     Fraction operator/(const Fraction &other) const;
-    friend Fraction operator/(const float &f, const Fraction &frac);
-    friend Fraction operator/(const Fraction &frac, const float &f);
+    friend Fraction operator/(const float &num, const Fraction &frac);
+    friend Fraction operator/(const Fraction &frac, const float &num);
     // boolean operators
     bool operator==(const Fraction &other) const;
-    friend bool operator==(const float &f, const Fraction &frac);
-    friend bool operator==(const Fraction &frac, const float &f);
+    friend bool operator==(const float &num, const Fraction &frac);
+    friend bool operator==(const Fraction &frac, const float &num);
     bool operator>(const Fraction &other) const;
-    friend bool operator>(const float &f, const Fraction &frac);
-    friend bool operator>(const Fraction &frac, const float &f);
+    friend bool operator>(const float &num, const Fraction &frac);
+    friend bool operator>(const Fraction &frac, const float &num);
     bool operator<(const Fraction &other) const;
-    friend bool operator<(const float &f, const Fraction &frac);
-    friend bool operator<(const Fraction &frac, const float &f);
+    friend bool operator<(const float &num, const Fraction &frac);
+    friend bool operator<(const Fraction &frac, const float &num);
     bool operator>=(const Fraction &other) const;
-    friend bool operator>=(const float &f, const Fraction &frac);
-    friend bool operator>=(const Fraction &frac, const float &f);
+    friend bool operator>=(const float &num, const Fraction &frac);
+    friend bool operator>=(const Fraction &frac, const float &num);
     bool operator<=(const Fraction &other) const;
-    friend bool operator<=(const float &f, const Fraction &frac);
-    friend bool operator<=(const Fraction &frac, const float &f);
+    friend bool operator<=(const float &num, const Fraction &frac);
+    friend bool operator<=(const Fraction &frac, const float &num);
     // unary operators
     Fraction& operator++(int increment_flag);
     Fraction& operator++();
