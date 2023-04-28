@@ -9,8 +9,8 @@ class Fraction
 private:
     int deno; // denominator
     int nume; // numerator
-    int GetGcd(const int a, const int b) const;
-    int GetLcm(const int a, const int b, int calculatedGcd) const;
+    int GetGcd(int num1, int num2) const;
+    int GetLcm(int num1, int num2, int calculatedGcd) const;
     Fraction GetFractionFromFloat(const float &num) const;
 public:
     // constructors
@@ -59,8 +59,8 @@ public:
     Fraction& operator--(int increment_flag);
     Fraction& operator--();
     // stream operators
-    friend ostream& operator<< (ostream& os, const Fraction& frac);
-    friend istream& operator>> (istream& is, Fraction& frac);
+    friend ostream& operator<< (ostream& ost, const Fraction& frac);
+    friend istream& operator>> (istream& ist, Fraction& frac);
 
     
 };

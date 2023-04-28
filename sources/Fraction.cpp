@@ -26,12 +26,12 @@ Fraction::Fraction(int numerator) : nume(numerator), deno(1) {}
 
 // Functions
 
-int Fraction::GetGcd(const int a, const int b) const
+int Fraction::GetGcd(int num1, int num2) const
 {
     int gcd = 1;
-    for (int i = 1; i <= a && i <= b; i++)
+    for (int i = 1; i <= num1 && i <= num2; i++)
     {
-        if (a % i == 0 && b % i == 0)
+        if (num1 % i == 0 && num2 % i == 0)
         {
             gcd = i;
         }
@@ -39,13 +39,13 @@ int Fraction::GetGcd(const int a, const int b) const
     return gcd;
 }
 
-int Fraction::GetLcm(const int a, const int b, int calculatedGcd = 0) const
+int Fraction::GetLcm(int num1, int num2, int calculatedGcd = 0) const
 {
     if (!calculatedGcd)
     {
-        return (a * b) / GetGcd(a, b);
+        return (num1 * num2) / GetGcd(num1, num2);
     }
-    return (a * b) / calculatedGcd;
+    return (num1 * num2) / calculatedGcd;
 }
 
 void Fraction::SimplfyFraction()
@@ -274,16 +274,16 @@ Fraction& Fraction::operator--(){
 
 // Stream Operators
 
-ostream& operator<<(ostream& os, const Fraction& frac){
-    os << frac.getNumerator() << "/" << frac.getDenominator();
-    return os;
+ostream& operator<<(ostream& ost, const Fraction& frac){
+    ost << frac.getNumerator() << "/" << frac.getDenominator();
+    return ost;
 }
 
-istream& operator>>(istream& is, Fraction& frac){
+istream& operator>>(istream& ist, Fraction& frac){
     int nume, deno;
-    is >> nume >> deno;
+    ist >> nume >> deno;
     frac.setNumerator(nume);
     frac.setDenominator(deno);
-    return is;
+    return ist;
 }
 };
